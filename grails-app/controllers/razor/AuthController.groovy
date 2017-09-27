@@ -3,6 +3,6 @@ package razor
 class AuthController {
 
     def Login() {
-        render "Hellworld"
+        render view: "/auth/login"
     }
 }

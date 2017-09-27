@@ -212,6 +212,11 @@ $(function () {
         $("body").removeClass("skin-1");
         $("body").removeClass("skin-2");
         $("body").removeClass("skin-3");
+        $(document).find('.setings-item').removeClass('active');
+        $(this).parents('.setings-item').addClass('active');
+        if(localStorageSupport) {
+            localStorage.setItem("razorSkin", '0');
+        }
         return false;
     });
 
@@ -220,6 +225,11 @@ $(function () {
         $("body").removeClass("skin-1");
         $("body").removeClass("skin-3");
         $("body").addClass("skin-2");
+        $(document).find('.setings-item').removeClass('active');
+        $(this).parents('.setings-item').addClass('active');
+        if(localStorageSupport) {
+            localStorage.setItem("razorSkin", '2');
+        }
         return false;
     });
 
@@ -228,6 +238,11 @@ $(function () {
         $("body").removeClass("skin-2");
         $("body").removeClass("skin-3");
         $("body").addClass("skin-1");
+        $(document).find('.setings-item').removeClass('active');
+        $(this).parents('.setings-item').addClass('active');
+        if(localStorageSupport) {
+            localStorage.setItem("razorSkin", '1');
+        }
         return false;
     });
 
@@ -236,6 +251,11 @@ $(function () {
         $("body").removeClass("skin-1");
         $("body").removeClass("skin-2");
         $("body").addClass("skin-3");
+        $(document).find('.setings-item').removeClass('active');
+        $(this).parents('.setings-item').addClass('active');
+        if(localStorageSupport) {
+            localStorage.setItem("razorSkin", '3');
+        }
         return false;
     });
 
@@ -243,6 +263,7 @@ $(function () {
         var collapse = localStorage.getItem("collapse_menu");
         var fixednavbar = localStorage.getItem("fixednavbar");
         var boxedlayout = localStorage.getItem("boxedlayout");
+        var razorSkin = localStorage.getItem("razorSkin");
 
         if (collapse == 'on') {
             $('#collapsemenu').prop('checked', 'checked')
@@ -253,6 +274,9 @@ $(function () {
         if (boxedlayout == 'on') {
             $('#boxedlayout').prop('checked', 'checked')
         }
+        if (razorSkin != '') {
+            $(document).find('.s-skin-' + razorSkin).parents('.setings-item').addClass('active')
+        }
     }
 
     if (localStorageSupport) {
@@ -260,6 +284,7 @@ $(function () {
         var collapse = localStorage.getItem("collapse_menu");
         var fixednavbar = localStorage.getItem("fixednavbar");
         var boxedlayout = localStorage.getItem("boxedlayout");
+        var razorSkin = localStorage.getItem("razorSkin");
 
         var body = $('body');
 
@@ -276,6 +301,16 @@ $(function () {
 
         if (boxedlayout == 'on') {
             body.addClass('boxed-layout');
+        }
+
+        if (razorSkin != '') {
+            if(razorSkin != 0) {
+                body.addClass('skin-' + razorSkin)
+            } else {
+                body.removeClass("skin-1");
+                body.removeClass("skin-2");
+                body.removeClass("skin-3");
+            }
         }
     }
 });
