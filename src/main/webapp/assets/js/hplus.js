@@ -2,7 +2,6 @@
 
 //公共配置
 
-
 $(document).ready(function () {
 
     // MetsiMenu

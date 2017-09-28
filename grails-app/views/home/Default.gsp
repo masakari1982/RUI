@@ -16,7 +16,8 @@
 
 </head>
 
-<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden;">
+
 <div id="wrapper">
     <!--左侧导航开始-->
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -46,8 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="logo-element">Razor
-                    </div>
+                    <div class="logo-element">Razor</div>
                 </li>
                 <li>
                     <a href="#">
@@ -57,7 +57,7 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
+                            <a class="J_menuItem" href="/home/dashboard" data-index="0">主页示例一</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="index_v2.html">主页示例二</a>
@@ -410,7 +410,8 @@
         <!--TAB控制器结束-->
 
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <div id="test"></div>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="" seamless></iframe>
         </div>
 
 
@@ -434,7 +435,8 @@
 <script type="text/javascript" src="${scriptsPath}/contabs.js"></script>
 
 <!-- 第三方插件 -->
-<script src="${scriptsPath}/plugins/pace/pace.min.js"></script>
+<script type="text/javascript" src="${scriptsPath}/plugins/pace/pace.min.js"></script>
+
 
 </body>
 
