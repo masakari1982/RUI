@@ -1,0 +1,256 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+body {
+    position:relative;
+    font-family: 'PingFang','PingFangAddons';
+    font-size:14px;
+}
+
+.widget-contanier {
+    position: relative;
+    height: 100vh;
+    padding: 50px;
+    opacity: 0;
+}
+
+/*FC日历框架*/
+#calendar {
+    position: relative;
+    width: 300px;
+    height: auto;
+    background-color: transparent;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/*FCtitle文字*/
+#calendar .fc-state-default {
+    background: transparent;
+}
+
+#calendar .fc-header-title h2 {
+    margin: 15px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+#calendar .fc-header {
+    background-color: #23b7e5;
+    border-radius: 5px;
+}
+
+/*FC按钮*/
+#calendar td[class^="fc-header-"] .fc-button {
+    border: 0;
+    color: #ffffff;
+}
+
+#calendar .fc-header-left {
+    text-align: left;
+}
+
+#calendar .fc-header-right {
+    text-align: right;
+}
+
+#calendar .fc-header-center {
+    text-align: center;
+}
+
+#calendar .fc-text-arrow {
+    font-size: 24px;
+}
+
+#calendar .fc-button-prev .fc-text-arrow:before {
+    font-family: "FontAwesome";
+    content: "\f0d9";
+}
+
+#calendar .fc-button-next .fc-text-arrow:before {
+    font-family: "FontAwesome";
+    content: "\f0da";
+}
+
+/*日历主体*/
+#calendar .fc-content {
+    padding: 10px 0 0 0;
+    border-radius: 5px;
+}
+
+#calendar table,
+#calendar thead th,
+#calendar tbody {
+    text-align: center;
+}
+
+/*日历星期栏*/
+#calendar thead th {
+    font-size: 14px;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#calendar thead th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#calendar thead th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*日历天数栏*/
+#calendar tbody {
+    background-color: transparent;
+    color: #fff;
+    font-weight: normal;
+}
+
+#calendar .fc-border-separate tbody:before {
+    line-height: 20px;
+    content: "\200C";
+    display: block;
+}
+
+#calendar .fc-today {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    color: #363f44;
+}
+
+#calendar .fc-past {
+    color: #98acc1;
+}
+
+#calendar .fc-other-month {
+    visibility: hidden;
+}
+
+#calendar .fc-day div.fc-adjust-height {
+    min-height: auto !important;
+    padding: 7px 0
+}
+
+/*时钟，原始的太大了，缩放了50%，由于字体11px限制不能再小*/
+.rclock {
+    position: relative;
+    zoom:44.5%
+}
+
+/*首页专用的加载*/
+#rloading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+}
+
+#rloading .sk-spinner {
+    margin-top: 49vh;
+}
+
+#rloading .slowNetwork {
+    width: 100%;
+    text-align: center;
+    color: #5c798f;
+    height: 40px;
+    line-height: 40px;
+    display: none
+}
+
+#rloading .slowNetwork i {
+    font-size: 16px;
+}
+
+#rloading .slowNetwork span {
+    font-size: 13px;
+}
+#rloading .sk-spinner-three-bounce div {
+    background-color: #23b7e5;
+}
+
+/*随机背景*/
+#changeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    z-index: 999;
+}
+
+#changeBg .mask {
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+#changeBg .mask {
+    -webkit-animation: breathBg 4.8s infinite;
+    -moz-animation: breathBg 4.8s infinite;
+    animation: breathBg 4.8s infinite;
+}
+
+@-webkit-keyframes breathBg {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@-moz-keyframes breathBg {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes breathBg {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+
+
+/*登录器*/
+.login-container {
+    background-color: rgba(255,255,255,1);
+    box-shadow: -5px 0px 3px rgba(0,0,0,0.2);
+}
+.loginscreen {
+    padding:50px; height: 100vh; margin: 0 auto; width: auto
+}
+
+.loginscreen {
+    width: 100% !important;
+}
+
+
+
+
+
+

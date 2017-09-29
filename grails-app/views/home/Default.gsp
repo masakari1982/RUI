@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>H+ 后台主题UI框架 - 主页</title>
+    <title>RUI - 主页</title>
 
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -72,7 +72,6 @@
                             <a href="index_v5.html" target="_blank">主页示例五</a>
                         </li>
                     </ul>
-
                 </li>
                 <li>
                     <a class="J_menuItem" href="layouts.html"><i class="fa fa-columns"></i> <span class="nav-label">布局</span></a>
@@ -431,7 +430,7 @@
 <g:include view="/layouts/basicScript.gsp" />
 
 <!-- 自定义js -->
-<script type="text/javascript" src="${scriptsPath}/hplus.js?v=4.1.0"></script>
+<script type="text/javascript" src="${scriptsPath}/rCore.js?v=4.1.0"></script>
 <script type="text/javascript" src="${scriptsPath}/contabs.js"></script>
 
 <!-- 第三方插件 -->

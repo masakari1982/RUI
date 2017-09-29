@@ -1,6 +1,19 @@
 @font-face {
     font-family: 'E3202';
     src: url('../fonts/E3202.eot?v=1.0.0') format('embedded-opentype'), url('../fonts/E3202.woff?v=1.0.0') format('woff');
-    font-weight: bold;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PingFang';
+    src: url('../fonts/PingFangSC-Thin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PingFangAddons';
+    src: url('../fonts/sf-pro-text_thin.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
 }
