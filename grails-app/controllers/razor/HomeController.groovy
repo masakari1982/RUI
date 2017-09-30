@@ -9,4 +9,8 @@ class HomeController {
     def dashboard() {
         render view: ("/home/dashboard")
     }
+
+    def linkssss() {
+        render view: ("/home/testv1")
+    }
 }

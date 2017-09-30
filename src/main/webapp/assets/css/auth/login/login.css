@@ -6,12 +6,13 @@ body {
     position:relative;
     font-family: 'PingFang','PingFangAddons';
     font-size:14px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .widget-contanier {
     position: relative;
     height: 100vh;
-    padding: 50px;
+    padding: 0 50px;
     opacity: 0;
 }
 
@@ -146,7 +147,7 @@ body {
     height: 100%;
     width: 100%;
     background-color: #fff;
-    z-index: 100;
+    z-index: 10000;
 }
 
 #rloading .sk-spinner {
@@ -203,7 +204,7 @@ body {
         opacity: 0.5;
     }
     50% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
     100% {
         opacity: 0.5;
@@ -215,7 +216,7 @@ body {
         opacity: 0.5;
     }
     50% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
     100% {
         opacity: 0.5;
@@ -227,7 +228,7 @@ body {
         opacity: 0.5;
     }
     50% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
     100% {
         opacity: 0.5;
@@ -238,11 +239,15 @@ body {
 
 /*登录器*/
 .login-container {
-    background-color: rgba(255,255,255,1);
-    box-shadow: -5px 0px 3px rgba(0,0,0,0.2);
+    background-color: transparent;
+    height: 100%;
+    padding: 0 3vw;
 }
 .loginscreen {
-    padding:50px; height: 100vh; margin: 0 auto; width: auto
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 15%;
 }
 
 .loginscreen {

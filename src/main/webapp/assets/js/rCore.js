@@ -15,8 +15,8 @@ $(document).ready(function () {
     // 右侧边栏使用slimscroll
     $('.sidebar-container').slimScroll({
         height: '100%',
-        railOpacity: 0.4,
-        wheelStep: 10
+        railOpacity: 0,
+        wheelStep: 10,
     });
 
     // 打开聊天窗口
@@ -28,7 +28,7 @@ $(document).ready(function () {
     // 聊天窗口使用slimscroll
     $('.small-chat-box .content').slimScroll({
         height: '234px',
-        railOpacity: 0.4
+        railOpacity: 0,
     });
 
     // Small todo handler
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $(function () {
         $('.sidebar-collapse').slimScroll({
             height: '100%',
-            railOpacity: 0.9,
+            railOpacity: 0,
             alwaysVisible: false
         });
     });
@@ -80,7 +80,9 @@ $(document).ready(function () {
     });
 
     $('.full-height-scroll').slimScroll({
-        height: '100%'
+        height: '100%',
+        railOpacity: 0,
+
     });
 
     $('#side-menu>li').click(function () {
