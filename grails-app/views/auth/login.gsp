@@ -52,16 +52,15 @@
 
     <div id="loginscreen" class="middle-box loginscreen">
         <h2 class="ft38">系统登录</h2>
-        <form class="m-t" role="form" action="index.html">
+        <form id="login_login" action="#">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="用户名" required="">
+                <input name="userName" type="text" class="form-control" placeholder="用户名" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="密码" required="">
+                <input name="password" type="password" class="form-control" placeholder="密码" required="">
             </div>
-            <button type="submit" class="btn btn-info block full-width m-b ft18">立即登录</button>
+            <a id="doLogin" class="btn btn-info block full-width m-b ft18">立即登录</a>
         </form>
-
         <h6 class="text-center hidden-lg" style="height:20px; line-height: 20px; width: 100%; margin-bottom: -30px">&copy; 2017 V1.0.0 R+ 版权所有</h6>
     </div>
 
@@ -71,14 +70,21 @@
 <div class="text-center hidden-md hidden-sm hidden-xs" style="height:50px; line-height: 50px; width: 100%; position: absolute; bottom: 0; color: #fff; background-color: rgba(255,255,255,0.2)">&copy; 2017 V1.0.0 R+ 版权所有</div>
 
 <!-- 全局js -->
-<g:include view="/webInit.gsp"/>
-<script src="${scriptsPath}/jquery.min.js?v=2.1.4"></script>
-<script src="${scriptsPath}/bootstrap.min.js?v=3.3.6"></script>
+<g:include view="/layouts/basicScript.gsp" />
+
+<!-- 核心js -->
+<script type="text/javascript" src="${scriptsPath}/rCore.js?v=4.1.0"></script>
+<script type="text/javascript" src="${scriptsPath}/customize.js?v=4.1.0"></script>
+
+
+<!-- 第三方插件 -->
 <script src="${scriptsPath}/plugins/fullcalendar/fullcalendar.min.js"></script>
 <script src="${scriptsPath}/plugins/jqcolor/jquery.color.min.js"></script>
 <script src="${scriptsPath}/rClock.js"></script>
 
 <script type="text/javascript">
+    var $form = $('#login_login');
+
     //随机摇号换bg
     var bg = 'bg' + (Math.floor(Math.random() * 5) + 1);
 
@@ -122,44 +128,9 @@
     function adjustWidget() {
         var clientHeight = $(window).height();
         var loginScreenHeight = $('.loginscreen').outerHeight(true);
-        console.log(clientHeight +'+'+ loginScreenHeight + '/2=' + (clientHeight - loginScreenHeight)/2)
         $('.loginscreen, #hintText').css({
             'margin-top': (clientHeight - loginScreenHeight)/2,
         });
-    }
-
-    //定位异常
-    function showError(error){
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-                alert("定位失败,用户拒绝请求地理定位");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("定位失败,位置信息是不可用");
-                break;
-            case error.TIMEOUT:
-                alert("定位失败,请求获取用户位置超时");
-                break;
-            case error.UNKNOWN_ERROR:
-                alert("定位失败,定位系统失效");
-                break;
-        }
-    }
-
-    //显示定位
-    function showPosition(position){
-        var lat = position.coords.latitude; //纬度
-        var lag = position.coords.longitude; //经度
-        alert('纬度:'+lat+',经度:'+lag);
-    }
-
-    //获取地理位置
-    function getLocation(){
-        if (navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(showPosition,showError);
-        }else{
-            alert("浏览器不支持地理定位。");
-        }
     }
 
     //显示全部页面
@@ -172,8 +143,30 @@
         $('#calendar').addClass('animated fadeInUp');
         $('#rclock').addClass('animated fadeInDown');
         $('#loginscreen').addClass('animated fadeInDown');
-        getLocation();
     }
+
+    //ajax登录
+    $('#doLogin').click(function (event) {
+        layMsg(cusMsg.checking());
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: rootPath + "/auth/checkLogin", //ajax地址
+            contentType: "application/json; charset=utf-8",//POST一定要加这一句，不要忘了
+            dataType: "json",
+            data: JSON.stringify($form.serializeJson()),
+            success: function (data) {
+                if (data.result == 'success') {
+                    layMsg(cusMsg.checksuccess(),1000,"/Home/index");
+                } else {
+                    layMsg(cusMsg.checkfail(),3000);
+                };
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                layMsg(cusMsg.ApiError(),3000);
+            }
+        });
+    })
 
 //    window.onresize = function () {
 //        adjustWidget();

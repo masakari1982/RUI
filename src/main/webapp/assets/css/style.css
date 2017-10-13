@@ -4872,6 +4872,11 @@ body.modal-open {
     margin: 0 auto;
 }
 
+.middle-box.middle-box-func {
+    max-width: 400px;
+    padding-top: 40px;
+}
+
 .lockscreen.middle-box {
     width: 200px;
     padding-top: 110px;

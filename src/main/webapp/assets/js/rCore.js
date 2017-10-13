@@ -320,3 +320,40 @@ $(function () {
 function localStorageSupport() {
     return (('localStorage' in window) && window['localStorage'] !== null)
 }
+
+//json序列化
+(function($){
+    $.fn.serializeJson=function(){
+        var serializeObj={};
+        var array=this.serializeArray();
+        var str=this.serialize();
+        $(array).each(function(){
+            if(serializeObj[this.name]){
+                if($.isArray(serializeObj[this.name])){
+                    serializeObj[this.name].push(this.value);
+                }else{
+                    serializeObj[this.name]=[serializeObj[this.name],this.value];
+                }
+            }else{
+                serializeObj[this.name]=this.value;
+            }
+        });
+        return serializeObj;
+    };
+})(jQuery);
+
+//传入parms name获取QueryString参数
+function getQueryString(strParame) {
+    var args = new Object();
+    var query = location.search.substring(1); // Get query string
+    var pairs = query.split("&"); // Break at ampersand
+    for (var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf('='); // Look for "name=value"
+        if (pos == -1) continue; // If not found, skip
+        var argname = pairs[i].substring(0, pos); // Extract the name
+        var value = pairs[i].substring(pos + 1); // Extract the value
+        value = decodeURIComponent(value); // Decode it, if needed
+        args[argname] = value; // Store as a property
+    }
+    return args[strParame]; // Return the object
+}

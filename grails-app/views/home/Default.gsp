@@ -1,3 +1,4 @@
+<%@ page import="javax.servlet.http.HttpServletRequest; org.grails.web.util.WebUtils; razor.WebUtilsService" %>
 <!DOCTYPE html>
 <html>
 
@@ -29,12 +30,16 @@
                     <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
-                                <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                <%
+                                    String userId = (String)session.getAttribute("userId");
+                                    String userName = (String)session.getAttribute("userName");
+                                %>
+                                <span class="block m-t-xs"><strong class="font-bold"><%= userId %></strong></span>
+                                <span class="text-muted text-xs block"><%= userName %><b class="caret"></b></span>
                             </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                            <li><a class="J_menuItem" href="form_avatar.html"><%= loggedUsername %>修改头像</a>
                             </li>
                             <li><a class="J_menuItem" href="profile.html">个人资料</a>
                             </li>
@@ -43,7 +48,7 @@
                             <li><a class="J_menuItem" href="mailbox.html">信箱</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html">安全退出</a>
+                            <li><a href="/auth/logout">安全退出</a>
                             </li>
                         </ul>
                     </div>
@@ -404,7 +409,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            <a href="/auth/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
         </div>
         <!--TAB控制器结束-->
 
@@ -431,6 +436,7 @@
 
 <!-- 自定义js -->
 <script type="text/javascript" src="${scriptsPath}/rCore.js?v=4.1.0"></script>
+<script type="text/javascript" src="${scriptsPath}/customize.js?v=4.1.0"></script>
 <script type="text/javascript" src="${scriptsPath}/contabs.js"></script>
 
 <!-- 第三方插件 -->
